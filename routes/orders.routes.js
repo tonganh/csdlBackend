@@ -7,7 +7,7 @@ orderRouter.post('/new-order', async (req, res) => {
     try {
         console.log(req.body);
         const orderID = new Date().getTime();
-        const createDate = `${new Date().getFullYear()}/${new Date().getMonth()+1}/${new Date().getDate()}`;
+        const createDate = `${new Date().getFullYear()}-${new Date().getMonth()+1}-${new Date().getDate()}`;
         console.log(createDate);
         // new orderinfo
         const newOrderQuery = `

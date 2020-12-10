@@ -16,12 +16,34 @@ const isLoggedIn = require('./middleware/checkLogIn');
 const isAdmin = require('./middleware/checkPermission');
 
 const config = {
-    user: 'sa',
-    password: '123456',
-    server: 'localhost',
+    user: 'testLogin',
+    password: 'lovehangga',
+    server: 'DESKTOP-GQSS7EK\\SQLEXPRESS',
     database: 'WebCSDL',
+    options: {           
+        encrypt: false
+    }
 };
 
+
+//  
+
+    // var config = {  
+    //     server: `DESKTOP-GQSS7EK\\SQLEXPRESS`,  //update me
+    //     authentication: {
+    //         type: 'default',
+    //         options: {
+    //             userName: 'testLogin', //update me
+    //             password: 'lovehangga'  //update me
+    //         }
+    //     },
+    //     options: {
+    //         // If you are on Microsoft Azure, you need encryption:
+    //         encrypt: true,
+    //         database: 'WebCSDL'  //update me
+    //     }
+    // }; 
+// 
 sql.connect(config, (err, pool) => {
     if (err) console.log(err);
     else {
