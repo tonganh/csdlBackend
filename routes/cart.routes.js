@@ -1,9 +1,11 @@
 const express = require('express');
 const sql = require('mssql');
+const checkLogIn = require('../middleware/checkLogIn');
 
 const cartRouter = express.Router();
 
 cartRouter.post('/add', async (req, res) => {
+    console.log('req', req.body);
     try {
         const checkResult = await new sql.Request().query(`
             SELECT * FROM [Cart]
@@ -87,5 +89,7 @@ cartRouter.get('/:username', async (req, res) => {
     }
 
 });
-
+cartRouter.post('/test', async (req, res) => {
+    console.log('123', req.body);
+} )
 module.exports = cartRouter;

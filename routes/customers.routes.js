@@ -25,7 +25,7 @@ customerRouter.post('/register', async (req, res) => {
         } else {
             const hashPassword = bcryptjs.hashSync(req.body.password, 10);
             const regQuery = `
-                INSERT INTO Customer
+                INSERT INTO Customer(Username, Password, Name, Address, Phone, Permission)
                 VALUES (
                     '${req.body.username}',
                     '${hashPassword}',

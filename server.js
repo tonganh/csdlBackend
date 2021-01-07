@@ -66,13 +66,6 @@ sql.connect(config, (err, pool) => {
         app.get('/test', (req, res) => {
             console.log(req.session.currentUser);
             res.send(req.session.currentUser);
-            // new sql.Request().query('SELECT * FROM Users', (err, result) => {
-            //     if (err) console.log(err);
-            //     else {
-            //         console.log(result);
-            //         res.send(result);
-            //     }
-            // });
         });
 
         // route
