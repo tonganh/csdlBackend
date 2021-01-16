@@ -18,7 +18,7 @@ customerRouter.post('/register', async (req, res) => {
         const checkResult = await new sql.Request().query(checkQuery);
         // console.log(checkResult);
         if (checkResult.rowsAffected[0]) {
-            res.status(400).json({
+            res.status(200).json({
                 success: false,
                 message: "Username has been used"
             });
@@ -38,7 +38,7 @@ customerRouter.post('/register', async (req, res) => {
             console.log(regQuery);
             const regResult = await new sql.Request().query(regQuery);
             console.log(regResult)
-            res.status(201).json({ success: true });
+            res.status(200).json({ success: true, message:"Successfull." });
         }
     } catch (err) {
         res.status(500).json({
@@ -58,7 +58,7 @@ customerRouter.post('/login', async (req, res) => {
         const checkResult = await new sql.Request().query(checkQuery);
         // console.log(checkResult);
         if (!checkResult.rowsAffected[0] || !bcryptjs.compareSync(req.body.password, checkResult.recordset[0].Password)) {
-            res.status(400).json({
+            res.status(201).json({
                 success: false,
                 message: "Incorrect Username or Password"
             });
@@ -76,7 +76,7 @@ customerRouter.post('/login', async (req, res) => {
             });
         }
     } catch (err) {
-        res.status(500).json({
+        res.status(201).json({
             success: false,
             message: err.message
         });
